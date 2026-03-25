@@ -3,6 +3,16 @@ import Tilt from 'react-parallax-tilt'
 import { motion, AnimatePresence } from 'framer-motion'
 import { useEffect, useState } from 'react'
 import Horario from '../components/Horario';
+import Microcine1 from '../assets/Frentes-Interiores/Microcine1.jpeg';
+import Aula1 from '../assets/Frentes-Interiores/Punto1Aula1.jpeg';
+import Microcine2 from '../assets/Frentes-Interiores/Punto2Microcine2.jpg';
+import Aula2 from '../assets/Frentes-Interiores/Punto2Aula.jpg';
+import Salado from '../assets/Frentes-Interiores/NodoSaladoInterior.jpeg';
+import Copa from '../assets/Frentes-Interiores/NodoCopaFrente.jpeg';
+import Puesto from '../assets/Frentes-Interiores/NodoElPuesto3.jpeg';
+import Card1 from '../assets/Robotica/Robotica2.jpg';
+import Card2 from '../assets/Otros/Punto2Decoracion.jpeg';
+import Card3 from '../assets/Otros/NodoElPuesto5.jpeg';
 
 export function Home() {
 
@@ -89,19 +99,19 @@ export function Home() {
   ];
 
   const espacios = [
-    { title: "Microcine Punto Digital 1", cap: "60 pers.", info: "Proyector, Sonido, Microfono, Pantalla", img: "src/assets/Frentes-Interiores/Microcine1.jpeg", icon: "src/assets/Logos/PuntoD.png" },
+    { title: "Microcine Punto Digital 1", cap: "60 pers.", info: "Proyector, Sonido, Microfono, Pantalla", img: {Microcine1}, icon: "/Logos/PuntoD.png" },
 
-    { title: "Aula de Informatica Punto Digital 1", cap: "16 pers.", info: "Televisor, Microfono, Pizarron", img: "src/assets/Frentes-Interiores/Punto1Aula1.jpeg", icon: "src/assets/Logos/PuntoD.png" },
+    { title: "Aula de Informatica Punto Digital 1", cap: "16 pers.", info: "Televisor, Microfono, Pizarron", img: {Aula1}, icon: "/Logos/PuntoD.png" },
 
-    { title: "Microcine Punto Digital 2", cap: "40 pers.", info: "Proyector, Sonido, Microfono, Pantalla", img: "src/assets/Frentes-Interiores/Punto2Microcine2.jpg", icon: "src/assets/Logos/PuntoD.png" },
+    { title: "Microcine Punto Digital 2", cap: "40 pers.", info: "Proyector, Sonido, Microfono, Pantalla", img: {Microcine2}, icon: "/Logos/PuntoD.png" },
 
-    { title: "Aula de Informatica Punto Digital 2", cap: "16 pers.", info: "Televisor, Microfono, Sonido, Pizarron", img: "src/assets/Frentes-Interiores/Punto2Aula.jpg", icon: "src/assets/Logos/PuntoD.png" },
+    { title: "Aula de Informatica Punto Digital 2", cap: "16 pers.", info: "Televisor, Microfono, Sonido, Pizarron", img: {Aula2}, icon: "/Logos/PuntoD.png" },
 
-    { title: "Nodo Tecnologico El Salado", cap: "10 pers.", info: "Microfono, Sonido, Pizarron", img: "src/assets/Frentes-Interiores/NodoSaladoInterior.jpeg", icon: "src/assets/Logos/NodoSalado.png" },
+    { title: "Nodo Tecnologico El Salado", cap: "10 pers.", info: "Microfono, Sonido, Pizarron", img: {Salado}, icon: "/Logos/NodoSalado.png" },
 
-    { title: "Nodo Tecnologico Copacabana", cap: "10 pers.", info: "", img: "src/assets/Frentes-Interiores/NodoCopaFrente.jpeg", icon: "src/assets/Logos/NodoCopa.png" },
+    { title: "Nodo Tecnologico Copacabana", cap: "10 pers.", info: "", img: {Copa}, icon: "/Logos/NodoCopa.png" },
 
-    { title: "Nodo tecnologico El Puesto", cap: "10 pers.", info: "Televisor, Sonido, Microfono", img: "src/assets/Frentes-Interiores/NodoElPuesto3.jpeg", icon: "src/assets/Logos/NodoPuesto.png" },
+    { title: "Nodo tecnologico El Puesto", cap: "10 pers.", info: "Televisor, Sonido, Microfono", img: {Puesto}, icon: "/Logos/NodoPuesto.png" },
   ];
 
   // seccion de cartas y direccion 
@@ -109,7 +119,7 @@ export function Home() {
     {
       id: "01",
       title: "Aula Robótica",
-      img: "src/assets/Robotica/Robotica2.jpg",
+      img: {Card1},
       x: -140, y: -60, rotate: -15,
       color: "#9F26C0",
       link: "#"
@@ -117,7 +127,7 @@ export function Home() {
     {
       id: "02",
       title: "Puntos Digitales",
-      img: "src/assets/Otros/Punto2Decoracion.jpeg",
+      img: {Card2},
       x: 40, y: 60, rotate: 10,
       color: "#22EA0A",
       link: "#"
@@ -125,7 +135,7 @@ export function Home() {
     {
       id: "03",
       title: "Nodos Tecnologicos",
-      img: "src/assets/Otros/NodoElPuesto5.jpeg",
+      img: {Card3},
       x: 100, y: -80, rotate: 5,
       color: "#EB0501",
       link: "#"
@@ -606,7 +616,7 @@ export function Home() {
                 whileInView={{ scale: 1, opacity: 0.2 }}
                 transition={{ duration: 0.8, delay: 0.4 }}
               >
-                <img src="src/assets/logos/PuntoD-B.png" alt="Logo punto digital" />
+                <img src="/Logos/PuntoD-B.png" alt="Logo punto digital" />
               </motion.div>
               <div className="relative z-10">
                 <h3 className="text-2xl sm:text-3xl font-bold mb-3 sm:mb-4">Punto Digital</h3>
@@ -640,7 +650,7 @@ export function Home() {
                 whileInView={{ scale: 1 }}
                 transition={{ duration: 0.8, delay: 0.5 }}
               >
-                <img src="src/assets/Logos/Tino-N.png" alt="Logo Muni" />
+                <img src="/Logos/Tino-N.png" alt="Logo Muni" />
               </motion.div>
               <div className="relative z-10">
                 <h4 className="text-lg sm:text-xl font-bold">Municipalidad de Tinogasta</h4>
@@ -693,7 +703,7 @@ export function Home() {
                 whileInView={{ scale: 1 }}
                 transition={{ duration: 1, delay: 0.8 }}
               >
-                <img src="src/assets/Logos/Robotica-blanco.png" alt="Logo Robotica" className='w-28 sm:w-36' />
+                <img src="/Logos/Robotica-blanco.png" alt="Logo Robotica" className='w-28 sm:w-36' />
               </motion.div>
               <div>
                 <h4 className="font-bold text-slate-400 italic text-sm">Nodos Tecnológicos</h4>

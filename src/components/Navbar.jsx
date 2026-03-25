@@ -22,7 +22,7 @@ function Navbar() {
         {/* Logo */}
         <Link to="/" className="hover:scale-105 transition-transform duration-300 ease-out flex-shrink-0">
           <img 
-            src="/src/assets/logos/Sub-Negro.png" 
+            src="/Logos/Sub-Negro.png" 
             alt="Home" 
             className="w-28 sm:w-40 transition-all" 
           />

@@ -10,6 +10,8 @@ import {
 } from 'lucide-react';
 import Tilt from 'react-parallax-tilt';
 import { motion, AnimatePresence } from 'framer-motion'
+import Hero from '../assets/Otros/Equipo de trabajo.jpeg'
+import Seccion2 from '..src/assets/Otros/Punto1Admin2.jpeg'
 
 
 
@@ -206,7 +208,7 @@ const Nosotros = () => {
             >
               <div className="relative w-full h-full rounded-[3.5rem] overflow-hidden shadow-[0_50px_100px_-20px_rgba(0,0,0,0.18)] bg-slate-200 group border border-white/50">
                 <div className="absolute inset-0 flex items-center justify-center text-slate-400 font-bold uppercase tracking-widest text-sm bg-slate-200">
-                  <img src="src/assets/Otros/Equipo de trabajo.jpeg" alt="Equipo SubSecretaria-2026" className='h-full object-cover' />
+                  <img src={Hero} alt="Equipo SubSecretaria-2026" className='h-full object-cover' />
                 </div>
                 <div className="absolute inset-0 bg-gradient-to-tr from-blue-600/10 to-transparent opacity-0 transition-opacity duration-700" />
               </div>
@@ -230,7 +232,7 @@ const Nosotros = () => {
           >
             <div className="absolute -top-10 -left-10 w-64 h-64 bg-red-500/5 rounded-full blur-3xl" />
             <div className="relative rounded-[2rem] overflow-hidden shadow-xl bg-slate-100 aspect-square">
-              <img src="src/assets/Otros/Punto1Admin2.jpeg" alt="Equipo Administrativo Subsecretaria" className='object-cover h-full' />
+              <img src={Seccion2} alt="Equipo Administrativo Subsecretaria" className='object-cover h-full' />
             </div>
             <motion.div
               className="absolute -bottom-10 -right-10 p-5 sm:p-6 hidden md:block"
@@ -238,7 +240,7 @@ const Nosotros = () => {
               whileInView={{ scale: 1, opacity: 1 }}
               transition={{ duration: 0.7, delay: 0.4 }}
             >
-              <img src="src/assets/Logos/Sub-Celeste.png" alt="Logo Subsecretaria" className='w-50' />
+              <img src="/Logos/Sub-Celeste.png" alt="Logo Subsecretaria" className='w-50' />
             </motion.div>
           </motion.div>
 

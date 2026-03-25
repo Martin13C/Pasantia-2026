@@ -36,7 +36,7 @@ function Footer() {
         <div className="flex justify-center lg:justify-start">
           <Tilt perspective={1000} scale={1.1} transitionSpeed={2000}>
             <img
-              src="src/assets/Logos/Sub-Blanco.png"
+              src="/Logos/Sub-Blanco.png"
               alt="Logo Subsecretaría"
               className="h-20 sm:h-28 w-auto object-contain drop-shadow-[0_0_20px_rgba(37,99,235,0.2)]"
             />

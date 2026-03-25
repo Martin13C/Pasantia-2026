@@ -3,6 +3,12 @@ import Horario from "../components/Horario";
 import Tilt from 'react-parallax-tilt';
 import { ExternalLink, MapPin } from "lucide-react";
 import { motion, AnimatePresence } from 'framer-motion'
+import Lugar1 from '../assets/Frentes-Interiores/Punto1Frente.jpeg'
+import Lugar2 from '../assets/Frentes-Interiores/Punto2Frente.png'
+import Lugar3 from '../assets/Robotica/Robotica5.jpg'
+import Lugar4 from '../assets/Frentes-Interiores/NodoSaladoFrente.jpg'
+import Lugar5 from '../assets/Frentes-Interiores/NodoElPuestoFrente1.jpeg'
+import Lugar6 from '../assets/Frentes-Interiores/NodoCopaFrente1.jpeg'
 
 
 
@@ -15,9 +21,9 @@ const stats = [
     color: "text-red-500",
     backContent: (
       <div className="relative w-full h-full flex items-center justify-center scale-90">
-        <img src="src/assets/Logos/NodoCopa.png" className="w-1/2 absolute -translate-x-12 -rotate-12 drop-shadow-lg transition-transform group-hover:-translate-x-16" alt="Copa" />
-        <img src="src/assets/Logos/NodoPuesto.png" className="w-1/2 z-20 drop-shadow-2xl scale-110" alt="El Puesto" />
-        <img src="src/assets/Logos/NodoSalado.png" className="w-1/2 absolute translate-x-12 rotate-12 drop-shadow-lg transition-transform group-hover:translate-x-16" alt="El Salado" />
+        <img src="/Logos/NodoCopa.png" className="w-1/2 absolute -translate-x-12 -rotate-12 drop-shadow-lg transition-transform group-hover:-translate-x-16" alt="Copa" />
+        <img src="/Logos/NodoPuesto.png" className="w-1/2 z-20 drop-shadow-2xl scale-110" alt="El Puesto" />
+        <img src="/Logos/NodoSalado.png" className="w-1/2 absolute translate-x-12 rotate-12 drop-shadow-lg transition-transform group-hover:translate-x-16" alt="El Salado" />
       </div>
     )
   },
@@ -26,7 +32,7 @@ const stats = [
     label: "Puntos Digitales",
     color: "text-cyan-500",
     backContent: (
-      <img src="src/assets/Logos/PuntoD.png" className="w-3/5 drop-shadow-xl" alt="Punto Digital" />
+      <img src="/Logos/PuntoD.png" className="w-3/5 drop-shadow-xl" alt="Punto Digital" />
     )
   },
   {
@@ -34,7 +40,7 @@ const stats = [
     label: "Laboratorio de Robótica",
     color: "text-purple-500",
     backContent: (
-      <img src="src/assets/Logos/Robotica-NyC.png" className="w-3/5 drop-shadow-xl" alt="Robótica" />
+      <img src="/Logos/Robotica-NyC.png" className="w-3/5 drop-shadow-xl" alt="Robótica" />
     )
   }
 ];
@@ -46,8 +52,8 @@ const lugares = [
     name: "Punto Digital I",
     address: "Calle Antonio del Pino 700",
     city: "Tinogasta, Catamarca",
-    logo: "src/assets/logos/PuntoD.png",
-    img: "src/assets/Frentes-Interiores/Punto1Frente.jpeg",
+    logo: "/Logos/PuntoD.png",
+    img: {Lugar1},
     maps: "https://maps.app.goo.gl/7bJfvYDj64B3f8FWA",
     from: "from-[#9F26C0]",
     to: "to-purple-400",
@@ -65,8 +71,8 @@ const lugares = [
     name: "Punto Digital II",
     address: "Calle Mario Castro 600",
     city: "Tinogasta, Catamarca",
-    logo: "src/assets/logos/PuntoD.png",
-    img: "src/assets/Frentes-Interiores/Punto2Frente.png",
+    logo: "/Logos/PuntoD.png",
+    img: {Lugar2},
     maps: "https://maps.app.goo.gl/tCiGhAD9nNVQpzPX7",
     from: "from-[#1A0EEB]",
     to: "to-blue-400",
@@ -84,8 +90,8 @@ const lugares = [
     name: "Laboratorio de Robótica",
     address: "Articulado con los Puntos Digitales",
     city: "Tinogasta, Catamarca",
-    logo: "src/assets/Logos/Robotica-blanco.png",
-    img: "src/assets/Robotica/Robotica5.jpg",
+    logo: "/Logos/Robotica-blanco.png",
+    img: {Lugar3},
     maps: "https://maps.app.goo.gl/7bJfvYDj64B3f8FWA",
     from: "from-[#01EBE5]",
     to: "to-cyan-300",
@@ -100,8 +106,8 @@ const lugares = [
     name: "Nodo Tecnológico El Salado",
     address: "El Salado",
     city: "Tinogasta, Catamarca",
-    logo: "src/assets/Logos/NodoSalado.png",
-    img: "src/assets/Frentes-Interiores/NodoSaladoFrente.jpg",
+    logo: "/Logos/NodoSalado.png",
+    img: {Lugar4},
     maps: "https://maps.google.com",
     from: "from-[#22EA0A]",
     to: "to-green-300",
@@ -120,8 +126,8 @@ const lugares = [
     name: "Nodo Tecnológico El Puesto",
     address: "El Puesto",
     city: "Tinogasta, Catamarca",
-    logo: "src/assets/logos/NodoPuesto.png",
-    img: "src/assets/Frentes-Interiores/NodoElPuestoFrente1.jpeg",
+    logo: "/Logos/NodoPuesto.png",
+    img: {Lugar5},
     maps: "https://maps.app.goo.gl/upSpgF2TQzGHFMyi7",
     from: "from-[#EB6200]",
     to: "to-orange-400",
@@ -138,8 +144,8 @@ const lugares = [
     name: "Nodo Tecnológico Copacabana",
     address: "Copacabana",
     city: "Tinogasta, Catamarca",
-    logo: "src/assets/logos/NodoCopa.png",
-    img: "src/assets/Frentes-Interiores/NodoCopaFrente1.jpeg",
+    logo: "/Logos/NodoCopa.png",
+    img: {Lugar6},
     maps: "#",
     from: "from-[#EB0501]",
     to: "to-red-400",
@@ -249,7 +255,7 @@ function PyN() {
               <div className="relative w-full h-full rounded-[3.5rem] overflow-hidden
                               shadow-[0_50px_100px_-20px_rgba(0,0,0,0.18)]
                               bg-slate-200 group border border-white/50">
-                <img src="src/assets/Otros/Punto1Juegos3.jpeg" alt="Robotica" className="object-cover h-full" />
+                <img src={Seccion1} alt="Robotica" className="object-cover h-full" />
                 {/* <div className="absolute inset-0 flex items-center justify-center
                                 text-slate-400 font-bold uppercase tracking-widest text-sm bg-slate-200">
                   [ Imagen Principal ]
