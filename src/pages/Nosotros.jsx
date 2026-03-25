@@ -9,9 +9,9 @@ import {
   Sparkles
 } from 'lucide-react';
 import Tilt from 'react-parallax-tilt';
-import { motion, AnimatePresence } from 'framer-motion'
-import Hero from '../assets/Otros/Equipo de trabajo.jpeg'
-import Seccion2 from '..src/assets/Otros/Punto1Admin2.jpeg'
+import { motion, AnimatePresence } from 'framer-motion';
+import Seccion1 from '../assets/Otros/EquipoTrabajo.jpeg';
+import Seccion2 from '../assets/Otros/Punto1Admin2.jpeg'
 
 
 
@@ -208,7 +208,7 @@ const Nosotros = () => {
             >
               <div className="relative w-full h-full rounded-[3.5rem] overflow-hidden shadow-[0_50px_100px_-20px_rgba(0,0,0,0.18)] bg-slate-200 group border border-white/50">
                 <div className="absolute inset-0 flex items-center justify-center text-slate-400 font-bold uppercase tracking-widest text-sm bg-slate-200">
-                  <img src={Hero} alt="Equipo SubSecretaria-2026" className='h-full object-cover' />
+                  <img src={Seccion1} alt="Equipo SubSecretaria-2026" className='h-full object-cover' />
                 </div>
                 <div className="absolute inset-0 bg-gradient-to-tr from-blue-600/10 to-transparent opacity-0 transition-opacity duration-700" />
               </div>

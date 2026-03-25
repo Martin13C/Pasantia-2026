@@ -845,7 +845,7 @@
     "finalizado": false,
     "urlInscripcion": "https://docs.google.com/forms/d/e/1FAIpQLSfWvthJ8W9C8zCQQh84WnDnXGcp7wmNhpIh3ZxjWwyVxP3TQQ/viewform?usp=publish-editor",
     "urlRedes": "https://www.facebook.com/share/p/1JjEQG2X1V/",
-    "imagenPoster": "src/assets/Flayers/flayer1.jpeg"
+    "imagenPoster": "/Flayers/flayer1.jpeg"
   },
   {
     "id": 54,
@@ -861,7 +861,7 @@
     "finalizado": false,
     "urlInscripcion": "https://docs.google.com/forms/d/e/1FAIpQLSfWvthJ8W9C8zCQQh84WnDnXGcp7wmNhpIh3ZxjWwyVxP3TQQ/viewform?usp=publish-editor",
     "urlRedes": "https://www.facebook.com/share/17VyC4nVKR/",
-    "imagenPoster": "src/assets/Flayers/flayer37.jpeg"
+    "imagenPoster": "/Flayers/flayer37.jpeg"
   }
 
 

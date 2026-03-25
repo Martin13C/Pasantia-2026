@@ -3,6 +3,7 @@ import Horario from "../components/Horario";
 import Tilt from 'react-parallax-tilt';
 import { ExternalLink, MapPin } from "lucide-react";
 import { motion, AnimatePresence } from 'framer-motion'
+import Seccion1 from '../assets/Frentes-Interiores/Punto1Frente.jpeg'
 import Lugar1 from '../assets/Frentes-Interiores/Punto1Frente.jpeg'
 import Lugar2 from '../assets/Frentes-Interiores/Punto2Frente.png'
 import Lugar3 from '../assets/Robotica/Robotica5.jpg'
@@ -53,7 +54,7 @@ const lugares = [
     address: "Calle Antonio del Pino 700",
     city: "Tinogasta, Catamarca",
     logo: "/Logos/PuntoD.png",
-    img: {Lugar1},
+    img: Lugar1,
     maps: "https://maps.app.goo.gl/7bJfvYDj64B3f8FWA",
     from: "from-[#9F26C0]",
     to: "to-purple-400",
@@ -72,7 +73,7 @@ const lugares = [
     address: "Calle Mario Castro 600",
     city: "Tinogasta, Catamarca",
     logo: "/Logos/PuntoD.png",
-    img: {Lugar2},
+    img: Lugar2,
     maps: "https://maps.app.goo.gl/tCiGhAD9nNVQpzPX7",
     from: "from-[#1A0EEB]",
     to: "to-blue-400",
@@ -91,7 +92,7 @@ const lugares = [
     address: "Articulado con los Puntos Digitales",
     city: "Tinogasta, Catamarca",
     logo: "/Logos/Robotica-blanco.png",
-    img: {Lugar3},
+    img: Lugar3,
     maps: "https://maps.app.goo.gl/7bJfvYDj64B3f8FWA",
     from: "from-[#01EBE5]",
     to: "to-cyan-300",
@@ -107,7 +108,7 @@ const lugares = [
     address: "El Salado",
     city: "Tinogasta, Catamarca",
     logo: "/Logos/NodoSalado.png",
-    img: {Lugar4},
+    img: Lugar4,
     maps: "https://maps.google.com",
     from: "from-[#22EA0A]",
     to: "to-green-300",
@@ -127,7 +128,7 @@ const lugares = [
     address: "El Puesto",
     city: "Tinogasta, Catamarca",
     logo: "/Logos/NodoPuesto.png",
-    img: {Lugar5},
+    img: Lugar5,
     maps: "https://maps.app.goo.gl/upSpgF2TQzGHFMyi7",
     from: "from-[#EB6200]",
     to: "to-orange-400",
@@ -145,7 +146,7 @@ const lugares = [
     address: "Copacabana",
     city: "Tinogasta, Catamarca",
     logo: "/Logos/NodoCopa.png",
-    img: {Lugar6},
+    img: Lugar6,
     maps: "#",
     from: "from-[#EB0501]",
     to: "to-red-400",
@@ -290,8 +291,8 @@ function PyN() {
 
         {/* CABECERA */}
         <motion.div className="text-center mb-10 sm:mb-16" initial={{ opacity: 0, scale: 0.9, y: 80 }}
-whileInView={{ opacity: 1, scale: 1, y: 0 }}
-transition={{ duration: 0.7, delay: 0.4 }}>
+          whileInView={{ opacity: 1, scale: 1, y: 0 }}
+          transition={{ duration: 0.7, delay: 0.4 }}>
           <h2 className="text-3xl sm:text-4xl md:text-5xl font-black italic text-slate-900 mb-6">
             Ubicaciones y Servicios
           </h2>
@@ -303,8 +304,8 @@ transition={{ duration: 0.7, delay: 0.4 }}>
         <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 sm:gap-8 md:gap-10 mb-16 sm:mb-28">
           {stats.map((stat, i) => (
             <motion.div key={i} className="group [perspective:1000px]" initial={{ opacity: 0, scale: 0.9, y: 80 }}
-whileInView={{ opacity: 1, scale: 1, y: 0 }}
-transition={{ duration: 0.7, delay: i * 0.30 + 0.6 }}>
+              whileInView={{ opacity: 1, scale: 1, y: 0 }}
+              transition={{ duration: 0.7, delay: i * 0.30 + 0.6 }}>
               <div className="relative w-full aspect-square transition-transform duration-700
                               [transform-style:preserve-3d]
                               group-hover:[transform:rotateY(180deg)] cursor-pointer">
@@ -335,8 +336,8 @@ transition={{ duration: 0.7, delay: i * 0.30 + 0.6 }}>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 sm:gap-10 md:gap-14">
           {lugares.map((lugar, index) => (
             <motion.div key={index} className="group" initial={{ opacity: 0, scale: 0.9, x: 300 }}
-whileInView={{ opacity: 1, scale: 1, x: 0 }}
-transition={{ duration: 0.7, delay: index * 0.20 + 0.3 }}>
+              whileInView={{ opacity: 1, scale: 1, x: 0 }}
+              transition={{ duration: 0.7, delay: index * 0.20 + 0.3 }}>
 
               <div className="relative h-[400px] sm:h-[440px] md:h-[460px] w-full
                               transition-transform duration-700

@@ -3,6 +3,14 @@ import Tilt from 'react-parallax-tilt'
 import { motion, AnimatePresence } from 'framer-motion'
 import { useEffect, useState } from 'react'
 import Horario from '../components/Horario';
+
+import Grid1 from '..//assets/Grid/ReunionPunto1.jpg';
+import Grid2 from '../assets/Grid/TallerCostura.jpeg';
+import Grid3 from '../assets/Grid/Reunion4.jpeg';
+import Grid4 from '../assets/Grid/ProfeTaller.jpeg';
+import Grid5 from '../assets/Grid/Robotica1.jpg';
+import Grid6 from '../assets/Grid/RCP.jpg';
+import Grid7 from '../assets/Grid/RoboticaClases.jpg';
 import Microcine1 from '../assets/Frentes-Interiores/Microcine1.jpeg';
 import Aula1 from '../assets/Frentes-Interiores/Punto1Aula1.jpeg';
 import Microcine2 from '../assets/Frentes-Interiores/Punto2Microcine2.jpg';
@@ -99,19 +107,19 @@ export function Home() {
   ];
 
   const espacios = [
-    { title: "Microcine Punto Digital 1", cap: "60 pers.", info: "Proyector, Sonido, Microfono, Pantalla", img: {Microcine1}, icon: "/Logos/PuntoD.png" },
+    { title: "Microcine Punto Digital 1", cap: "60 pers.", info: "Proyector, Sonido, Microfono, Pantalla", img: Microcine1, icon: "/Logos/PuntoD.png" },
 
-    { title: "Aula de Informatica Punto Digital 1", cap: "16 pers.", info: "Televisor, Microfono, Pizarron", img: {Aula1}, icon: "/Logos/PuntoD.png" },
+    { title: "Aula de Informatica Punto Digital 1", cap: "16 pers.", info: "Televisor, Microfono, Pizarron", img: Aula1, icon: "/Logos/PuntoD.png" },
 
-    { title: "Microcine Punto Digital 2", cap: "40 pers.", info: "Proyector, Sonido, Microfono, Pantalla", img: {Microcine2}, icon: "/Logos/PuntoD.png" },
+    { title: "Microcine Punto Digital 2", cap: "40 pers.", info: "Proyector, Sonido, Microfono, Pantalla", img: Microcine2, icon: "/Logos/PuntoD.png" },
 
-    { title: "Aula de Informatica Punto Digital 2", cap: "16 pers.", info: "Televisor, Microfono, Sonido, Pizarron", img: {Aula2}, icon: "/Logos/PuntoD.png" },
+    { title: "Aula de Informatica Punto Digital 2", cap: "16 pers.", info: "Televisor, Microfono, Sonido, Pizarron", img: Aula2, icon: "/Logos/PuntoD.png" },
 
-    { title: "Nodo Tecnologico El Salado", cap: "10 pers.", info: "Microfono, Sonido, Pizarron", img: {Salado}, icon: "/Logos/NodoSalado.png" },
+    { title: "Nodo Tecnologico El Salado", cap: "10 pers.", info: "Microfono, Sonido, Pizarron", img: Salado, icon: "/Logos/NodoSalado.png" },
 
-    { title: "Nodo Tecnologico Copacabana", cap: "10 pers.", info: "", img: {Copa}, icon: "/Logos/NodoCopa.png" },
+    { title: "Nodo Tecnologico Copacabana", cap: "10 pers.", info: "", img: Copa, icon: "/Logos/NodoCopa.png" },
 
-    { title: "Nodo tecnologico El Puesto", cap: "10 pers.", info: "Televisor, Sonido, Microfono", img: {Puesto}, icon: "/Logos/NodoPuesto.png" },
+    { title: "Nodo tecnologico El Puesto", cap: "10 pers.", info: "Televisor, Sonido, Microfono", img: Puesto, icon: "/Logos/NodoPuesto.png" },
   ];
 
   // seccion de cartas y direccion 
@@ -119,7 +127,7 @@ export function Home() {
     {
       id: "01",
       title: "Aula Robótica",
-      img: {Card1},
+      img: Card1,
       x: -140, y: -60, rotate: -15,
       color: "#9F26C0",
       link: "#"
@@ -127,7 +135,7 @@ export function Home() {
     {
       id: "02",
       title: "Puntos Digitales",
-      img: {Card2},
+      img: Card2,
       x: 40, y: 60, rotate: 10,
       color: "#22EA0A",
       link: "#"
@@ -135,7 +143,7 @@ export function Home() {
     {
       id: "03",
       title: "Nodos Tecnologicos",
-      img: {Card3},
+      img: Card3,
       x: 100, y: -80, rotate: 5,
       color: "#EB0501",
       link: "#"
@@ -237,7 +245,7 @@ export function Home() {
               }}
             >
               <img
-                src="src/assets/Grid/ReunionPunto1.jpg"
+                src={Grid1}
                 className="w-full h-full object-cover"
                 alt="Tinogasta Digital Móvil"
               />
@@ -258,14 +266,14 @@ export function Home() {
               <div className="col-span-1 h-[40%] transition-all duration-700"
                 style={{ filter: `blur(${blurValue}px) grayscale(${progress})`, opacity: 1 - progress }}>
                 {/* Imagen */}
-                <img src="src/assets/Grid/TallerCostura.jpeg" className="w-full h-full object-cover rounded-[2rem] shadow-xl hover:scale-110 hover:-translate-y-4 transition-all duration-500" alt="Punto Digital" />
+                <img src={Grid2} className="w-full h-full object-cover rounded-[2rem] shadow-xl hover:scale-110 hover:-translate-y-4 transition-all duration-500" alt="Punto Digital" />
               </div>
 
               <div className="col-span-2 h-[70%] flex flex-col gap-6 transition-all duration-700"
                 style={{ filter: `blur(${blurValue}px) grayscale(${progress})`, opacity: 1 - progress }}>
                 {/* Imagen X2 */}
-                <img src="src/assets/Grid/Reunion4.jpeg" className="w-full h-1/2 object-cover rounded-[2.5rem] shadow-xl hover:scale-105 transition-all duration-500" alt="Capacitación" />
-                <img src="src/assets/Grid/ProfeTaller.jpeg" className="w-full h-1/2 object-cover rounded-[2.5rem] shadow-xl hover:scale-105 transition-all duration-500" alt="Comunidad" />
+                <img src={Grid3} className="w-full h-1/2 object-cover rounded-[2.5rem] shadow-xl hover:scale-105 transition-all duration-500" alt="Capacitación" />
+                <img src={Grid4} className="w-full h-1/2 object-cover rounded-[2.5rem] shadow-xl hover:scale-105 transition-all duration-500" alt="Comunidad" />
               </div>
 
               {/* CENTRO (Escala x2) */}
@@ -278,7 +286,7 @@ export function Home() {
                   }}
                 >
                   <img
-                    src="src/assets/Grid/ReunionPunto1.jpg"
+                    src={Grid1}
                     className="w-full h-full object-cover"
                     alt="Tinogasta Digital"
                   />
@@ -289,13 +297,13 @@ export function Home() {
               {/* LADO DERECHO */}
               <div className="col-span-2 h-[70%] flex flex-col gap-6 transition-all duration-700"
                 style={{ filter: `blur(${blurValue}px) grayscale(${progress})`, opacity: 1 - progress }}>
-                <img src="src/assets/Grid/Robotica1.jpg" className="w-full h-1/2 object-cover rounded-[2.5rem] shadow-xl hover:scale-105 transition-all duration-500" alt="Tecnología" />
-                <img src="src/assets/Grid/RCP.jpg" className="w-full h-1/2 object-cover rounded-[2.5rem] shadow-xl hover:scale-105 transition-all duration-500" alt="Robótica" />
+                <img src={Grid5} className="w-full h-1/2 object-cover rounded-[2.5rem] shadow-xl hover:scale-105 transition-all duration-500" alt="Tecnología" />
+                <img src={Grid6} className="w-full h-1/2 object-cover rounded-[2.5rem] shadow-xl hover:scale-105 transition-all duration-500" alt="Robótica" />
               </div>
 
               <div className="col-span-1 h-[40%] transition-all duration-700"
                 style={{ filter: `blur(${blurValue}px) grayscale(${progress})`, opacity: 1 - progress }}>
-                <img src="src/assets/Grid/RoboticaClases.jpg" className="w-full h-full object-cover rounded-[2rem] shadow-xl hover:scale-110 hover:-translate-y-4 transition-all duration-500" alt="Nodos" />
+                <img src={Grid7} className="w-full h-full object-cover rounded-[2rem] shadow-xl hover:scale-110 hover:-translate-y-4 transition-all duration-500" alt="Nodos" />
               </div>
 
             </div>
@@ -308,6 +316,7 @@ export function Home() {
 
       {/* ── SECCIÓN 2: HORARIOS ── */}
       <Horario />
+
       {/* ── SECCIÓN 3: SERVICIOS ── */}
       <motion.section
         className="w-full bg-slate-100 py-16 flex flex-col overflow-hidden relative lg:h-screen"
@@ -520,17 +529,14 @@ export function Home() {
                   gyroscope={true}
                   className="h-36 sm:h-40 md:h-44 cursor-pointer"
                 >
-                  <motion.div
+                  <div
                     className="relative w-full h-full transition-all duration-500"
                     style={{
                       transformStyle: "preserve-3d",
                       transform: flippedIndex === i ? "rotateY(180deg)" : "rotateY(0deg)"
                     }}
                     onClick={() => handleFlip(i)}
-                    initial={{ opacity: 0, scale: 0.9 }}
-                    whileInView={{ opacity: 1, scale: 1 }}
-                    viewport={{ once: true, margin: "-100px" }}
-                    transition={{ duration: 0.5, delay: i * 0.08 }}
+               
                   >
                     {/* FRENTE */}
                     <motion.div
@@ -567,7 +573,7 @@ export function Home() {
                       <p className="text-white text-[11px] sm:text-[12px] font-medium leading-snug">{espacio.info}</p>
                       <div className="mt-3 sm:mt-4 text-[7px] sm:text-[8px] text-white/60 font-bold uppercase">Click para cerrar</div>
                     </motion.div>
-                  </motion.div>
+                  </div>
                 </Tilt>
               ))}
             </div>
@@ -716,7 +722,6 @@ export function Home() {
           </div>
         </div>
       </motion.section>
-
 
       {/* ── SECCIÓN 6: EDIFICIOS — CARTAS NAIPES ── */}
       <motion.section
