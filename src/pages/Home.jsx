@@ -156,7 +156,8 @@ export function Home() {
     { name: "Copacabana", url: "https://maps.app.goo.gl/GToMw5XfBzAqExxd6" },
     { name: "El Puesto", url: "https://maps.app.goo.gl/dh8AenEeocotbLwj8" }
   ];
-
+// solucion para hover de celular
+  const isTouch = typeof window !== "undefined" && window.matchMedia("(hover: none)").matches;
 
 
   return (
@@ -834,7 +835,14 @@ export function Home() {
                   >
                     {card.id}
                   </span>
-                  <div className="opacity-0 translate-y-4 group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-500 ease-out">
+                  <div className=
+                  // "opacity-0 translate-y-4 group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-500 ease-out"
+                  {`transition-all duration-500 ease-out
+    ${isTouch 
+      ? "opacity-100 translate-y-0" 
+      : "opacity-0 translate-y-4 group-hover:opacity-100 group-hover:translate-y-0"
+    }`}
+                  >
                     <h5
                       className="text-white font-bold text-xl sm:text-2xl md:text-3xl mb-3"
                       style={{ textShadow: `0 0 20px ${card.color}` }}
