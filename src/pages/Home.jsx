@@ -156,9 +156,10 @@ export function Home() {
     { name: "Copacabana", url: "https://maps.app.goo.gl/GToMw5XfBzAqExxd6" },
     { name: "El Puesto", url: "https://maps.app.goo.gl/dh8AenEeocotbLwj8" }
   ];
-// solucion para hover de celular
-  const isTouch = typeof window !== "undefined" && window.matchMedia("(hover: none)").matches;
+  // solucion para hover de celular
+  const [activeCard, setActiveCard] = useState(null);
 
+  const isTouch = typeof window !== "undefined" && window.matchMedia("(hover: none)").matches;
 
   return (
     <div className="bg-gray-50 min-h-screen font-sans text-slate-950">
@@ -537,7 +538,7 @@ export function Home() {
                       transform: flippedIndex === i ? "rotateY(180deg)" : "rotateY(0deg)"
                     }}
                     onClick={() => handleFlip(i)}
-               
+
                   >
                     {/* FRENTE */}
                     <motion.div
@@ -815,10 +816,36 @@ export function Home() {
                   scale: 1,
                   transition: { delay: index * 0.15, duration: 0.8, ease: [0.16, 1, 0.3, 1] }
                 }}
-                viewport={{ once: false, amount: 0.3 }}
-                whileHover={{
-                  scale: 1.05, rotate: 0, zIndex: 50, rotateX: 6, rotateY: -6,
+                animate={
+                  isTouch && activeCard === index
+                    ? { scale: 1.08, rotate: 0, y: -10 }
+                    : {}
+                }
+                whileHover={!isTouch ? {
+                  scale: 1.05,
+                  rotate: 0,
+                  zIndex: 50,
+                  rotateX: 6,
+                  rotateY: -6,
                   transition: { type: "spring", stiffness: 150, damping: 25 }
+                } : {}}
+                whileTap={{ scale: 0.97 }}
+
+                viewport={{ once: false, amount: 0.3 }}
+                // whileHover={{
+                //   scale: 1.05, rotate: 0, zIndex: 50, rotateX: 6, rotateY: -6,
+                //   transition: { type: "spring", stiffness: 150, damping: 25 }
+                // }}
+                style={{
+                  zIndex: isTouch
+                    ? activeCard === index ? 50 : 1
+                    : undefined
+                }}
+                onClick={(e) => {
+                  e.stopPropagation();
+                  if (isTouch) {
+                    setActiveCard(activeCard === index ? null : index);
+                  }
                 }}
                 className="absolute w-52 h-[300px] sm:w-64 sm:h-[360px] md:w-72 md:h-[400px] lg:w-72 lg:h-[400px] xl:w-80 xl:h-[450px] rounded-[2.5rem] shadow-[0_20px_50px_rgba(0,0,0,0.25)] overflow-hidden cursor-grab active:cursor-grabbing group bg-slate-900"
               >
@@ -836,12 +863,12 @@ export function Home() {
                     {card.id}
                   </span>
                   <div className=
-                  // "opacity-0 translate-y-4 group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-500 ease-out"
-                  {`transition-all duration-500 ease-out
-    ${isTouch 
-      ? "opacity-100 translate-y-0" 
-      : "opacity-0 translate-y-4 group-hover:opacity-100 group-hover:translate-y-0"
-    }`}
+                    // "opacity-0 translate-y-4 group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-500 ease-out"
+                    {`transition-all duration-500 ease-out
+    ${isTouch
+                        ? "opacity-100 translate-y-0"
+                        : "opacity-0 translate-y-4 group-hover:opacity-100 group-hover:translate-y-0"
+                      }`}
                   >
                     <h5
                       className="text-white font-bold text-xl sm:text-2xl md:text-3xl mb-3"
