@@ -157,6 +157,7 @@ const Nosotros = () => {
 
   // ajustes para mobil 
   const [activeValue, setActiveValue] = useState(null);
+  const [activeHito, setActiveHito] = useState(null);
 
   const isTouch =
     typeof window !== "undefined" &&
@@ -452,7 +453,7 @@ const Nosotros = () => {
       </motion.section>
 
       {/* SECCIÓN 4: HISTORIA - LÍNEA DE TIEMPO */}
-     <motion.section
+<motion.section
   className="px-4 sm:px-6 lg:px-32 xl:px-48 py-14 sm:py-16 bg-gray-950 relative overflow-hidden"
   initial={{ opacity: 0, y: 30 }}
   whileInView={{ opacity: 1, y: 0 }}
@@ -501,16 +502,38 @@ const Nosotros = () => {
       >
         <div className="w-full lg:w-1/2 flex justify-center">
           <motion.div
-            className={`relative w-full max-w-sm sm:max-w-md p-6 sm:p-8 bg-white rounded-3xl sm:rounded-[2.5rem] shadow-[0_20px_50px_rgba(0,0,0,0.4)] transition-all duration-500 group overflow-hidden ${hito.border}`}
-            
+            onClick={() =>
+              isTouch &&
+              setActiveHito(activeHito === index ? null : index)
+            }
+
+            style={{
+              zIndex: isTouch
+                ? activeHito === index
+                  ? 50
+                  : 1
+                : undefined,
+            }}
+
+            animate={
+              isTouch && activeHito === index
+                ? { scale: 1.03, y: -6 }
+                : {}
+            }
+
             whileHover={!isTouch ? { scale: 1.02, y: -4 } : {}}
             whileTap={{ scale: 0.98 }}
+
+            className={`relative w-full max-w-sm sm:max-w-md p-6 sm:p-8 bg-white rounded-3xl sm:rounded-[2.5rem] shadow-[0_20px_50px_rgba(0,0,0,0.4)] transition-all duration-500 group overflow-hidden ${hito.border}`}
           >
+            {/* OVERLAY */}
             <div
               className={`absolute inset-0 bg-gradient-to-br ${hito.color} to-transparent transition-opacity duration-500
                 ${
                   isTouch
-                    ? "opacity-10"
+                    ? activeHito === index
+                      ? "opacity-100"
+                      : "opacity-0"
                     : "opacity-0 group-hover:opacity-100"
                 }
               `}
@@ -518,37 +541,56 @@ const Nosotros = () => {
 
             <div className="relative z-10">
               <div className="flex justify-between items-start mb-5 sm:mb-6">
-                <span className={`text-3xl sm:text-4xl font-black text-slate-900 tracking-tighter ${hito.accent}`}>
+                <span
+                  className={`text-3xl sm:text-4xl font-black text-slate-900 tracking-tighter ${hito.accent}`}
+                >
                   {hito.year}
                 </span>
-                <Calendar className={`text-slate-300 ${hito.accent}`} size={22} />
+                <Calendar
+                  className={`text-slate-300 ${hito.accent}`}
+                  size={22}
+                />
               </div>
 
               <h4 className="text-lg sm:text-xl font-black tracking-tighter text-slate-900 mb-2 italic">
                 {hito.title}
               </h4>
 
-              <p className={`text-[11px] font-bold tracking-[0.25em] mb-5 sm:mb-6 uppercase ${hito.accent}`}>
+              <p
+                className={`text-[11px] font-bold tracking-[0.25em] mb-5 sm:mb-6 uppercase ${hito.accent}`}
+              >
                 {hito.date}
               </p>
 
               <div className="space-y-3 border-t border-slate-100 pt-4 sm:pt-5">
                 {hito.gestion && (
                   <p className="text-xs text-slate-500 font-medium">
-                    <span className="text-slate-900 font-bold uppercase">Gestión:</span> {hito.gestion}
+                    <span className="text-slate-900 font-bold uppercase">
+                      Gestión:
+                    </span>{" "}
+                    {hito.gestion}
                   </p>
                 )}
 
                 {hito.coordinador && (
                   <p className="text-xs text-slate-500 font-medium">
-                    <span className="text-slate-900 font-bold uppercase">Coordinación:</span> {hito.coordinador}
+                    <span className="text-slate-900 font-bold uppercase">
+                      Coordinación:
+                    </span>{" "}
+                    {hito.coordinador}
                   </p>
                 )}
 
                 {hito.liderazgo &&
                   hito.liderazgo.map((lid, i) => (
-                    <p key={i} className="text-xs text-slate-500 font-medium">
-                      <span className="text-slate-900 font-bold uppercase">{lid.cargo}:</span> {lid.nombre}
+                    <p
+                      key={i}
+                      className="text-xs text-slate-500 font-medium"
+                    >
+                      <span className="text-slate-900 font-bold uppercase">
+                        {lid.cargo}:
+                      </span>{" "}
+                      {lid.nombre}
                     </p>
                   ))}
 
@@ -565,7 +607,6 @@ const Nosotros = () => {
     ))}
   </div>
 </motion.section>
-
       {/* ORGANIGRAMA INSTITUCIONAL */}
       <motion.section
         className="pt-12 sm:pt-16 pb-12 sm:pb-16 px-4 sm:px-8 md:px-16 lg:px-32 xl:px-48 bg-gray-100 relative overflow-hidden"
