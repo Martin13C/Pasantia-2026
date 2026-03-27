@@ -10,150 +10,146 @@ import {
 } from 'lucide-react';
 import Tilt from 'react-parallax-tilt';
 import { motion, AnimatePresence } from 'framer-motion';
-import Seccion1 from '../assets/Otros/EquipoTrabajo.jpeg';
-import Seccion2 from '../assets/Otros/Punto1Admin2.jpeg'
+import Seccion1 from '../assets/Otros/EquipoTrabajo.webp';
+import Seccion2 from '../assets/Otros/Punto1Admin2.webp'
 
-
+const valores = [
+  {
+    title: "Inclusión digital",
+    desc: "Acercar la tecnología a toda la comunidad, sin barreras.",
+    icon: <Globe />,
+    colorText: "text-blue-500",
+    from: "from-blue-500",
+    to: "to-cyan-400"
+  },
+  {
+    title: "Accesibilidad",
+    desc: "Garantizar igualdad de oportunidades en el acceso a recursos y capacitaciones.",
+    icon: <Users />,
+    colorText: "text-purple-500",
+    from: "from-purple-500",
+    to: "to-indigo-400"
+  },
+  {
+    title: "Innovación",
+    desc: "Incorporar nuevas herramientas y metodologías para el aprendizaje.",
+    icon: <Rocket />,
+    colorText: "text-red-500",
+    from: "from-red-500",
+    to: "to-orange-400"
+  },
+  {
+    title: "Compromiso social",
+    desc: "Trabajar con responsabilidad y vocación de servicio hacia la comunidad.",
+    icon: <Award />,
+    colorText: "text-emerald-500",
+    from: "from-emerald-500",
+    to: "to-teal-400"
+  }
+];
+const hitos = [
+  {
+    year: "2013",
+    title: "Inauguración del NAC Tinogasta",
+    date: "23 de octubre de 2013",
+    gestion: "Hugo Daniel Ávila",
+    coordinador: "Matías Barrionuevo",
+    detail:
+      "Apertura del Núcleo de Acceso al Conocimiento (NAC) Tinogasta, primer espacio público dedicado a la inclusión digital y acceso a tecnología en el departamento.",
+    side: "left",
+    color: "from-blue-500/20",
+    accent: "group-hover:text-blue-600",
+    border: "group-hover:border-blue-500/30"
+  },
+  {
+    year: "2015",
+    title: "Transformación a Punto Digital",
+    date: "",
+    gestion: "Sebastián Nóblega",
+    coordinador: "Eliana Chaile",
+    detail:
+      "El NAC Tinogasta se integra al Programa Punto Digital, incorporándose al Programa Federal de Transformación Pública Digital y ampliando sus servicios tecnológicos.",
+    side: "right",
+    color: "from-indigo-500/20",
+    accent: "group-hover:text-indigo-600",
+    border: "group-hover:border-indigo-500/30"
+  },
+  {
+    year: "2020 - 2022",
+    title: "Renovación y Expansión",
+    date: "",
+    coordinador: "Lorena Cabrera (luego Directora)",
+    detail:
+      "Inauguración del Punto Digital II (19/10/2022) y renovación completa del Punto Digital I. Fortalecimiento del Laboratorio de Robótica y creación de nodos tecnológicos en Salado, El Puesto y Copacabana.",
+    side: "left",
+    color: "from-emerald-500/20",
+    accent: "group-hover:text-emerald-600",
+    border: "group-hover:border-emerald-500/30"
+  },
+  {
+    year: "2025",
+    title: "Creación de la Subsecretaría - Actualidad",
+    date: "",
+    liderazgo: [
+      { cargo: "Subsecretaria", nombre: "Prof. Lorena Cabrera" },
+      { cargo: "Coord. General", nombre: "Prof. Nélida Quintero" },
+      { cargo: "Coord. Técnica", nombre: "Prof. Patricia Córdoba" }
+    ],
+    detail:
+      "Creación formal de la Subsecretaría de Desarrollo Integral y Tecnología para la Inclusión, consolidando el crecimiento institucional y ampliando el alcance territorial de los programas tecnológicos.",
+    side: "right",
+    color: "from-red-500/20",
+    accent: "group-hover:text-red-600",
+    border: "group-hover:border-red-500/30"
+  }
+];
+// --- DATOS ORGANIGRAMA ---
+const orgNivel1 = {
+  area: "Subsecretaría de Desarrollo Integral y Tecnología para la Inclusión",
+  nombre: "Prof. Lorena Cabrera",
+  border: "border-blue-500/40",
+  text: "text-blue-400"
+};
+const orgNivel2 = [
+  {
+    cargo: "Coordinadora General",
+    nombre: "Prof. Nélida Quintero",
+    detalle: "A cargo de: Laboratorio de Robótica",
+    border: "border-green-500/40",
+    text: "text-green-400"
+  },
+  {
+    cargo: "Coordinadora Técnica",
+    nombre: "Prof. Patricia Córdoba",
+    detalle: "A cargo de: Puntos Digitales I y II",
+    border: "border-cyan-400/40",
+    text: "text-cyan-300"
+  }
+];
+const orgNivel3 = [
+  {
+    area: "Nodos Tecnológicos",
+    detalle: "El Salado • El Puesto • Copacabana",
+    border: "border-red-500/40",
+    text: "text-red-400"
+  },
+  {
+    area: "Empleados Administrativos",
+    detalle: "Gestión administrativa y atención institucional",
+    border: "border-purple-500/40",
+    text: "text-purple-400"
+  },
+  {
+    area: "Personal de Limpieza",
+    detalle: "Mantenimiento de espacios y equipamiento",
+    border: "border-purple-500/40",
+    text: "text-purple-400"
+  }
+];
 
 const Nosotros = () => {
 
-  const valores = [
-    {
-      title: "Compromiso",
-      desc: "Dedicación total al éxito y bienestar de cada estudiante.",
-      icon: <Users />,
-      colorText: "text-blue-500",
-      from: "from-blue-500",
-      to: "to-cyan-400"
-    },
-    {
-      title: "Excelencia",
-      desc: "Búsqueda constante de la más alta calidad en todo lo que hacemos.",
-      icon: <Award />,
-      colorText: "text-purple-500",
-      from: "from-purple-500",
-      to: "to-indigo-400"
-    },
-    {
-      title: "Inclusión",
-      desc: "Educación accesible para todos, sin importar origen o circunstancia.",
-      icon: <Globe />,
-      colorText: "text-emerald-500",
-      from: "from-emerald-500",
-      to: "to-teal-400"
-    },
-    {
-      title: "Innovación",
-      desc: "Aplicación de tecnología y metodologías vanguardistas.",
-      icon: <Rocket />,
-      colorText: "text-red-500",
-      from: "from-red-500",
-      to: "to-orange-400"
-    }
-  ];
 
-  const hitos = [
-    {
-      year: "2013",
-      title: "Inauguración del NAC Tinogasta",
-      date: "23 de octubre de 2013",
-      gestion: "Hugo Daniel Ávila",
-      coordinador: "Matías Barrionuevo",
-      detail:
-        "Apertura del Núcleo de Acceso al Conocimiento (NAC) Tinogasta, primer espacio público dedicado a la inclusión digital y acceso a tecnología en el departamento.",
-      side: "left",
-      color: "from-blue-500/20",
-      accent: "group-hover:text-blue-600",
-      border: "group-hover:border-blue-500/30"
-    },
-    {
-      year: "2015",
-      title: "Transformación a Punto Digital",
-      date: "",
-      gestion: "Sebastián Nóblega",
-      coordinador: "Eliana Chaile",
-      detail:
-        "El NAC Tinogasta se integra al Programa Punto Digital, incorporándose al Programa Federal de Transformación Pública Digital y ampliando sus servicios tecnológicos.",
-      side: "right",
-      color: "from-indigo-500/20",
-      accent: "group-hover:text-indigo-600",
-      border: "group-hover:border-indigo-500/30"
-    },
-    {
-      year: "2020 - 2022",
-      title: "Renovación y Expansión",
-      date: "",
-      coordinador: "Lorena Cabrera (luego Directora)",
-      detail:
-        "Inauguración del Punto Digital II (19/10/2022) y renovación completa del Punto Digital I. Fortalecimiento del Laboratorio de Robótica y creación de nodos tecnológicos en Salado, El Puesto y Copacabana.",
-      side: "left",
-      color: "from-emerald-500/20",
-      accent: "group-hover:text-emerald-600",
-      border: "group-hover:border-emerald-500/30"
-    },
-    {
-      year: "2025",
-      title: "Creación de la Subsecretaría - Actualidad",
-      date: "",
-      liderazgo: [
-        { cargo: "Subsecretaria", nombre: "Prof. Lorena Cabrera" },
-        { cargo: "Coord. General", nombre: "Prof. Nélida Quintero" },
-        { cargo: "Coord. Técnica", nombre: "Prof. Patricia Córdoba" }
-      ],
-      detail:
-        "Creación formal de la Subsecretaría de Desarrollo Integral y Tecnología para la Inclusión, consolidando el crecimiento institucional y ampliando el alcance territorial de los programas tecnológicos.",
-      side: "right",
-      color: "from-red-500/20",
-      accent: "group-hover:text-red-600",
-      border: "group-hover:border-red-500/30"
-    }
-  ];
-
-  // --- DATOS ORGANIGRAMA ---
-  const orgNivel1 = {
-    area: "Subsecretaría de Desarrollo Integral y Tecnología para la Inclusión",
-    nombre: "Prof. Lorena Cabrera",
-    border: "border-blue-500/40",
-    text: "text-blue-400"
-  };
-
-  const orgNivel2 = [
-    {
-      cargo: "Coordinadora General",
-      nombre: "Prof. Nélida Quintero",
-      detalle: "A cargo de: Laboratorio de Robótica",
-      border: "border-green-500/40",
-      text: "text-green-400"
-    },
-    {
-      cargo: "Coordinadora Técnica",
-      nombre: "Prof. Patricia Córdoba",
-      detalle: "A cargo de: Puntos Digitales I y II",
-      border: "border-cyan-400/40",
-      text: "text-cyan-300"
-    }
-  ];
-
-  const orgNivel3 = [
-    {
-      area: "Nodos Tecnológicos",
-      detalle: "El Salado • El Puesto • Copacabana",
-      border: "border-red-500/40",
-      text: "text-red-400"
-    },
-    {
-      area: "Empleados Administrativos",
-      detalle: "Gestión administrativa y atención institucional",
-      border: "border-purple-500/40",
-      text: "text-purple-400"
-    },
-    {
-      area: "Personal de Limpieza",
-      detalle: "Mantenimiento de espacios y equipamiento",
-      border: "border-purple-500/40",
-      text: "text-purple-400"
-    }
-  ];
 
   // ajustes para mobil 
   const [activeValue, setActiveValue] = useState(null);
@@ -248,7 +244,7 @@ const Nosotros = () => {
               whileInView={{ scale: 1, opacity: 1 }}
               transition={{ duration: 0.7, delay: 0.4 }}
             >
-              <img src="/Logos/Sub-Celeste.png" alt="Logo Subsecretaria" className='w-50' />
+              <img src="/Logos/Sub-Celeste.webp" alt="Logo Subsecretaria" className='w-50' />
             </motion.div>
           </motion.div>
 
@@ -271,8 +267,8 @@ const Nosotros = () => {
                     <Target className="text-white" size={22} />
                   </div>
                   <h3 className="text-xl sm:text-2xl font-black italic uppercase tracking-tighter text-slate-900">Misión</h3>
-                  <p className="text-slate-500 text-sm leading-relaxed font-bold">
-                    Brindar educación de calidad accesible y transformadora que empodere a individuos, fomentando habilidades que les permitan alcanzar su máximo potencial.
+                  <p className="text-slate-700 text-sm leading-relaxed font-bold">
+                    Promover la inclusión digital y el desarrollo integral de la comunidad, brindando acceso a herramientas tecnológicas, capacitación y espacios de aprendizaje para todos los ciudadanos.
                   </p>
                 </div>
               </Tilt>
@@ -290,8 +286,8 @@ const Nosotros = () => {
                     <Eye className="text-white" size={22} />
                   </div>
                   <h3 className="text-xl sm:text-2xl font-black italic uppercase tracking-tighter text-white">Visión</h3>
-                  <p className="text-slate-400 text-sm leading-relaxed font-bold">
-                    Ser la plataforma educativa líder, reconocida por la excelencia académica e innovación pedagógica, creando una comunidad global de aprendizaje continuo.
+                  <p className="text-slate-200 text-sm leading-relaxed font-bold">
+                    Ser un espacio referente en innovación e inclusión tecnológica, donde cada persona pueda acceder, aprender y desarrollarse en el mundo digital.
                   </p>
                 </div>
               </Tilt>
@@ -314,7 +310,7 @@ const Nosotros = () => {
           whileInView={{ opacity: 1, scale: 1 }}
           transition={{ duration: 0.6, delay: 0.2 }}
         >
-          <h2 className="text-3xl sm:text-4xl md:text-5xl font-black tracking-tighter italic text-slate-900">
+          <h2 className="text-3xl sm:text-4xl md:text-6xl font-black tracking-tighter italic text-slate-900">
             Nuestros <span className="text-blue-600">Valores</span>
           </h2>
           <motion.div
@@ -330,7 +326,7 @@ const Nosotros = () => {
             <motion.div
               key={i}
               onClick={() => isTouch && setActiveValue(activeValue === i ? null : i)}
-              className={`group relative bg-white p-6 sm:p-8 pt-12 sm:pt-14 rounded-3xl border border-slate-100 shadow-md transition-all duration-500 flex flex-col justify-between
+              className={`group relative bg-white p-6 sm:p-10 pt-10 sm:pt-12 rounded-3xl border border-slate-100 shadow-md transition-all duration-500 flex flex-col justify-between
           ${!isTouch && "hover:shadow-xl hover:-translate-y-2"}
           ${isTouch && activeValue === i && "shadow-xl -translate-y-2"}
         `}
@@ -342,7 +338,7 @@ const Nosotros = () => {
               {/* ICONO */}
               <div className="absolute -top-8 left-1/2 -translate-x-1/2 z-20">
                 <div
-                  className={`w-14 h-14 sm:w-16 sm:h-16 bg-white rounded-2xl shadow-xl flex items-center justify-center relative overflow-hidden transition-all duration-500
+                  className={`w-16 h-16 sm:w-20 sm:h-20 bg-white rounded-2xl shadow-xl flex items-center justify-center relative overflow-hidden transition-all duration-500
               ${isTouch
                       ? activeValue === i && "scale-110 -rotate-3"
                       : "group-hover:scale-110 group-hover:-rotate-3"
@@ -354,8 +350,8 @@ const Nosotros = () => {
                 ${isTouch
                         ? activeValue === i
                           ? "translate-y-0"
-                          : "translate-y-16"
-                        : "translate-y-16 group-hover:translate-y-0"
+                          : "translate-y-20"
+                        : "translate-y-20 group-hover:translate-y-0"
                       }
               `}
                   />
@@ -365,7 +361,7 @@ const Nosotros = () => {
                         ? activeValue === i && "text-white"
                         : "group-hover:text-white"
                       }
-                [&>svg]:w-6 [&>svg]:h-6 sm:[&>svg]:w-7 sm:[&>svg]:h-7
+                [&>svg]:w-8 [&>svg]:h-8 sm:[&>svg]:w-9 sm:[&>svg]:h-9
               `}
                   >
                     {v.icon}
@@ -379,10 +375,10 @@ const Nosotros = () => {
                 whileInView={{ opacity: 1 }}
                 transition={{ duration: 0.5, delay: i * 0.1 + 0.2 }}
               >
-                <h4 className="font-black tracking-widest text-sm mb-3 text-slate-900">
+                <h4 className="font-extrabold text-md mb-3 text-slate-900">
                   {v.title}
                 </h4>
-                <p className="text-slate-500 text-xs font-medium leading-loose">
+                <p className="text-slate-800 text-sm font-medium">
                   {v.desc}
                 </p>
               </motion.div>
@@ -430,10 +426,10 @@ const Nosotros = () => {
           transition={{ duration: 0.6, delay: 0.2 }}
         >
           <h2 className="text-3xl sm:text-4xl md:text-5xl font-black text-slate-900 italic tracking-tight">
-            Nuestro <span className="text-white">Compromiso Actual</span>
+            Compromiso <span className="text-white"> Actual</span>
           </h2>
           <motion.p
-            className="mt-6 sm:mt-8 text-slate-100 max-w-3xl mx-auto leading-relaxed font-medium text-sm sm:text-base"
+            className="mt-6 sm:mt-8 text-slate-50 max-w-3xl mx-auto leading-relaxed font-medium text-sm sm:text-lg"
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}
             transition={{ duration: 0.6, delay: 0.3 }}
@@ -459,6 +455,7 @@ const Nosotros = () => {
         <div className="absolute top-1/2 -right-40 w-[500px] h-[500px] bg-cyan-500/10 rounded-full blur-[120px] animate-pulse" />
         <div className="absolute bottom-0 left-1/3 w-[400px] h-[400px] bg-indigo-500/10 rounded-full blur-[120px]" />
 
+        {/* titulo y parrafo */}
         <motion.div
           className="mb-10 sm:mb-14 text-center"
           initial={{ opacity: 0, scale: 0.95 }}
@@ -470,7 +467,7 @@ const Nosotros = () => {
           </h2>
 
           <motion.p
-            className="mt-4 sm:mt-6 text-slate-400 max-w-2xl mx-auto font-medium leading-relaxed italic border-b border-blue-500/20 pb-6 text-sm sm:text-base"
+            className="mt-4 sm:mt-6 text-slate-200 max-w-2xl mx-auto font-medium leading-relaxed italic border-b border-blue-500/20 pb-6 text-sm sm:text-lg"
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}
             transition={{ duration: 0.6, delay: 0.3 }}
@@ -557,7 +554,7 @@ const Nosotros = () => {
 
                     <div className="space-y-3 border-t border-slate-100 pt-4 sm:pt-5">
                       {hito.gestion && (
-                        <p className="text-xs text-slate-500 font-medium">
+                        <p className="text-xs text-slate-900 font-medium">
                           <span className="text-slate-900 font-bold uppercase">
                             Gestión:
                           </span>{" "}
@@ -566,7 +563,7 @@ const Nosotros = () => {
                       )}
 
                       {hito.coordinador && (
-                        <p className="text-xs text-slate-500 font-medium">
+                        <p className="text-xs text-slate-900 font-medium">
                           <span className="text-slate-900 font-bold uppercase">
                             Coordinación:
                           </span>{" "}
@@ -578,7 +575,7 @@ const Nosotros = () => {
                         hito.liderazgo.map((lid, i) => (
                           <p
                             key={i}
-                            className="text-xs text-slate-500 font-medium"
+                            className="text-xs text-slate-900 font-medium"
                           >
                             <span className="text-slate-900 font-bold uppercase">
                               {lid.cargo}:
@@ -587,7 +584,7 @@ const Nosotros = () => {
                           </p>
                         ))}
 
-                      <p className="text-sm text-slate-600 leading-relaxed mt-3 sm:mt-4 bg-slate-50 p-3 sm:p-4 rounded-2xl italic">
+                      <p className="text-sm text-slate-900 font-medium leading-relaxed mt-3 sm:mt-4 bg-slate-50 p-3 sm:p-4 rounded-2xl italic">
                         "{hito.detail}"
                       </p>
                     </div>

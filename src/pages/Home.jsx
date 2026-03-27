@@ -4,31 +4,152 @@ import { motion, AnimatePresence } from 'framer-motion'
 import { useEffect, useState } from 'react'
 import Horario from '../components/Horario';
 
-import Grid1 from '..//assets/Grid/ReunionPunto1.jpg';
-import Grid2 from '../assets/Grid/TallerCostura.jpeg';
-import Grid3 from '../assets/Grid/Reunion4.jpeg';
-import Grid4 from '../assets/Grid/ProfeTaller.jpeg';
-import Grid5 from '../assets/Grid/Robotica1.jpg';
-import Grid6 from '../assets/Grid/RCP.jpg';
-import Grid7 from '../assets/Grid/RoboticaClases.jpg';
-import Microcine1 from '../assets/Frentes-Interiores/Microcine1.jpeg';
-import Aula1 from '../assets/Frentes-Interiores/Punto1Aula1.jpeg';
-import Microcine2 from '../assets/Frentes-Interiores/Punto2Microcine2.jpg';
-import Aula2 from '../assets/Frentes-Interiores/Punto2Aula.jpg';
-import Salado from '../assets/Frentes-Interiores/NodoSaladoInterior.jpeg';
-import Copa from '../assets/Frentes-Interiores/NodoCopaFrente.jpeg';
-import Puesto from '../assets/Frentes-Interiores/NodoElPuesto3.jpeg';
-import Card1 from '../assets/Robotica/Robotica2.jpg';
-import Card2 from '../assets/Otros/Punto2Decoracion.jpeg';
-import Card3 from '../assets/Otros/NodoElPuesto5.jpeg';
+import Grid1 from '..//assets/Grid/ReunionPunto1.webp';
+import Grid2 from '../assets/Grid/TallerCostura.webp';
+import Grid3 from '../assets/Grid/Reunion4.webp';
+import Grid4 from '../assets/Grid/ProfeTaller.webp';
+import Grid5 from '../assets/Grid/Robotica1.webp';
+import Grid6 from '../assets/Grid/RCP.webp';
+import Grid7 from '../assets/Grid/RoboticaClases.webp';
+import Microcine1 from '../assets/Frentes-Interiores/Microcine1.webp';
+import Aula1 from '../assets/Frentes-Interiores/Punto1Aula1.webp';
+import Microcine2 from '../assets/Frentes-Interiores/Punto2Microcine2.webp';
+import Aula2 from '../assets/Frentes-Interiores/Punto2Aula.webp';
+import Salado from '../assets/Frentes-Interiores/NodoSaladoInterior.webp';
+import Copa from '../assets/Frentes-Interiores/NodoCopaFrente.webp';
+import Puesto from '../assets/Frentes-Interiores/NodoElPuesto3.webp';
+import Card1 from '../assets/Robotica/Robotica2.webp';
+import Card2 from '../assets/Otros/Punto2Decoracion.webp';
+import Card3 from '../assets/Otros/NodoElPuesto5.webp';
+
+
+// Seccion de servicio 
+const servicios = [
+  {
+    icon: <Wifi size={32} />,
+    title: "Internet Gratis",
+    desc: "Zona WiFi y estaciones de trabajo libres para todos los ciudadanos.",
+    from: "from-[#9F26C0]", to: "to-purple-400",
+    shadow: "shadow-[#9F26C0]/20", colorText: "text-[#9F26C0]", hex: "#9F26C0"
+  },
+  {
+    icon: <BookOpen size={32} />,
+    title: "Capacitaciones",
+    desc: "Cursos certificados en herramientas digitales y oficios modernos.",
+    from: "from-[#1A0EEB]", to: "to-blue-400",
+    shadow: "shadow-[#1A0EEB]/20", colorText: "text-[#1A0EEB]", hex: "#1A0EEB"
+  },
+  {
+    icon: <Gamepad2 size={32} />,
+    title: "Cine y Videojuegos",
+    desc: "Espacio de recreación equipado con consolas y proyección.",
+    from: "from-[#01EBE5]", to: "to-cyan-300",
+    shadow: "shadow-[#01EBE5]/20", colorText: "text-[#01EBE5]", hex: "#01EBE5"
+  },
+  {
+    icon: <Users size={32} />,
+    title: "Espacios Disponibles",
+    desc: "Áreas diseñadas para el trabajo colaborativo, reuniones y capacitaciones grupales.",
+    from: "from-[#22EA0A]", to: "to-green-300",
+    shadow: "shadow-[#22EA0A]/20", colorText: "text-[#22EA0A]", hex: "#22EA0A"
+  },
+  {
+    icon: <FileText size={32} />,
+    title: "Asistencia Digital",
+    desc: "Te ayudamos con tus trámites de Mi Argentina, ANSES y gestiones gubernamentales.",
+    from: "from-[#EB6200]", to: "to-orange-400",
+    shadow: "shadow-[#EB6200]/20", colorText: "text-[#EB6200]", hex: "#EB6200"
+  },
+  {
+    icon: <Cpu size={32} />,
+    title: "Aula de Robótica",
+    desc: "Aprendizaje práctico en programación, electrónica, impresiones 3D y armado de kits robóticos.",
+    from: "from-[#EB0501]", to: "to-red-400",
+    shadow: "shadow-[#EB0501]/20", colorText: "text-[#EB0501]", hex: "#EB0501"
+  },
+];
+// Seccion de Espacios disponibles
+const pasos = [
+  {
+    icon: <CalendarCheck className="text-[#9F26C0]" size={28} />,
+    text: "Fecha y horario solicitado",
+    color: "#9F26C0"
+  },
+  {
+    icon: <MonitorPlay className="text-[#22EA0A]" size={28} />,
+    text: "Tipo de actividad o capacitación",
+    color: "#22EA0A"
+  },
+  {
+    icon: <Users className="text-[#EB0501]" size={28} />,
+    text: "Cantidad estimada de participantes",
+    color: "#EB0501"
+  }
+];
+const espacios = [
+  { title: "Microcine Punto Digital 1", cap: "60 pers.", info: "Proyector, Sonido, Micrófono, Pantalla", img: Microcine1, icon: "/Logos/PuntoD.webp" },
+
+  { title: "Aula de Informática Punto Digital 1", cap: "16 pers.", info: "Televisor, Micrófono, Pizarrón", img: Aula1, icon: "/Logos/PuntoD.webp" },
+
+  { title: "Microcine Punto Digital 2", cap: "40 pers.", info: "Proyector, Sonido, Micrófono, Pantalla", img: Microcine2, icon: "/Logos/PuntoD.webp" },
+
+  { title: "Aula de Informática Punto Digital 2", cap: "16 pers.", info: "Televisor, Micrófono, Sonido, Pizarrón", img: Aula2, icon: "/Logos/PuntoD.webp" },
+
+  { title: "Nodo Tecnológico El Salado", cap: "10 pers.", info: "Micrófono, Sonido, Pizarrón", img: Salado, icon: "/Logos/NodoSalado.webp" },
+
+  { title: "Nodo Tecnológico Copacabana", cap: "10 pers.", info: "", img: Copa, icon: "/Logos/NodoCopa.webp" },
+
+  { title: "Nodo Tecnológico El Puesto", cap: "10 pers.", info: "Televisor, Sonido, Micrófono", img: Puesto, icon: "/Logos/NodoPuesto.webp" },
+];
+// seccion de cartas y direccion 
+const cards = [
+  {
+    id: "01",
+    title: "Aula de Robótica",
+    img: Card1,
+    x: -140, y: -60, rotate: -15,
+    color: "#9F26C0",
+    link: "#"
+  },
+  {
+    id: "02",
+    title: "Puntos Digitales",
+    img: Card2,
+    x: 40, y: 60, rotate: 10,
+    color: "#22EA0A",
+    link: "#"
+  },
+  {
+    id: "03",
+    title: "Nodos Tecnológicos",
+    img: Card3,
+    x: 100, y: -80, rotate: 5,
+    color: "#EB0501",
+    link: "#"
+  }
+];
+const localidades = [
+  { name: "Tinogasta", url: "https://maps.google.com/?q=Tinogasta" },
+  { name: "El Salado", url: "https://maps.app.goo.gl/1eDN84L7F4bACybP7" },
+  { name: "Copacabana", url: "https://maps.app.goo.gl/GToMw5XfBzAqExxd6" },
+  { name: "El Puesto", url: "https://maps.app.goo.gl/dh8AenEeocotbLwj8" }
+];
 
 export function Home() {
-
   const [scrollY, setScrollY] = useState(0);
 
   useEffect(() => {
-    const handleScroll = () => setScrollY(window.scrollY);
-    window.addEventListener("scroll", handleScroll);
+    let ticking = false;
+    const handleScroll = () => {
+      if (!ticking) {
+        window.requestAnimationFrame(() => {
+          setScrollY(window.scrollY);
+          ticking = false;
+        });
+        ticking = true;
+      }
+    };
+    window.addEventListener("scroll", handleScroll, { passive: true });
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
@@ -42,120 +163,6 @@ export function Home() {
     setFlippedIndex(flippedIndex === i ? null : i);
   };
 
-  // Seccion de servicio 
-  const servicios = [
-    {
-      icon: <Wifi size={32} />,
-      title: "Internet Gratis",
-      desc: "Zona WiFi y estaciones de trabajo libres para todos los ciudadanos.",
-      from: "from-[#9F26C0]", to: "to-purple-400",
-      shadow: "shadow-[#9F26C0]/20", colorText: "text-[#9F26C0]", hex: "#9F26C0"
-    },
-    {
-      icon: <BookOpen size={32} />,
-      title: "Capacitaciones",
-      desc: "Cursos certificados en herramientas digitales y oficios modernos.",
-      from: "from-[#1A0EEB]", to: "to-blue-400",
-      shadow: "shadow-[#1A0EEB]/20", colorText: "text-[#1A0EEB]", hex: "#1A0EEB"
-    },
-    {
-      icon: <Gamepad2 size={32} />,
-      title: "Cine y Videojuegos",
-      desc: "Espacio de recreación equipado con consolas y proyeccion.",
-      from: "from-[#01EBE5]", to: "to-cyan-300",
-      shadow: "shadow-[#01EBE5]/20", colorText: "text-[#01EBE5]", hex: "#01EBE5"
-    },
-    {
-      icon: <Users size={32} />,
-      title: "Espacios Disponibles",
-      desc: "Áreas diseñadas para el trabajo colaborativo, reuniones y capacitaciones grupales.",
-      from: "from-[#22EA0A]", to: "to-green-300",
-      shadow: "shadow-[#22EA0A]/20", colorText: "text-[#22EA0A]", hex: "#22EA0A"
-    },
-    {
-      icon: <FileText size={32} />,
-      title: "Asistencia Digital",
-      desc: "Te ayudamos con tus trámites de Mi Argentina, ANSES y gestiones gubernamentales.",
-      from: "from-[#EB6200]", to: "to-orange-400",
-      shadow: "shadow-[#EB6200]/20", colorText: "text-[#EB6200]", hex: "#EB6200"
-    },
-    {
-      icon: <Cpu size={32} />,
-      title: "Aula de Robótica",
-      desc: "Aprendizaje práctico en programación, electrónica, impresiones 3D y armado de kits robóticos.",
-      from: "from-[#EB0501]", to: "to-red-400",
-      shadow: "shadow-[#EB0501]/20", colorText: "text-[#EB0501]", hex: "#EB0501"
-    },
-  ];
-  // Seccion de Espacios disponibles
-  const pasos = [
-    {
-      icon: <CalendarCheck className="text-[#9F26C0]" size={28} />,
-      text: "Fecha y horario solicitado",
-      color: "#9F26C0"
-    },
-    {
-      icon: <MonitorPlay className="text-[#22EA0A]" size={28} />,
-      text: "Tipo de actividad o capacitación",
-      color: "#22EA0A"
-    },
-    {
-      icon: <Users className="text-[#EB0501]" size={28} />,
-      text: "Cantidad estimada de participantes",
-      color: "#EB0501"
-    }
-  ];
-
-  const espacios = [
-    { title: "Microcine Punto Digital 1", cap: "60 pers.", info: "Proyector, Sonido, Microfono, Pantalla", img: Microcine1, icon: "/Logos/PuntoD.png" },
-
-    { title: "Aula de Informatica Punto Digital 1", cap: "16 pers.", info: "Televisor, Microfono, Pizarron", img: Aula1, icon: "/Logos/PuntoD.png" },
-
-    { title: "Microcine Punto Digital 2", cap: "40 pers.", info: "Proyector, Sonido, Microfono, Pantalla", img: Microcine2, icon: "/Logos/PuntoD.png" },
-
-    { title: "Aula de Informatica Punto Digital 2", cap: "16 pers.", info: "Televisor, Microfono, Sonido, Pizarron", img: Aula2, icon: "/Logos/PuntoD.png" },
-
-    { title: "Nodo Tecnologico El Salado", cap: "10 pers.", info: "Microfono, Sonido, Pizarron", img: Salado, icon: "/Logos/NodoSalado.png" },
-
-    { title: "Nodo Tecnologico Copacabana", cap: "10 pers.", info: "", img: Copa, icon: "/Logos/NodoCopa.png" },
-
-    { title: "Nodo tecnologico El Puesto", cap: "10 pers.", info: "Televisor, Sonido, Microfono", img: Puesto, icon: "/Logos/NodoPuesto.png" },
-  ];
-
-  // seccion de cartas y direccion 
-  const cards = [
-    {
-      id: "01",
-      title: "Aula Robótica",
-      img: Card1,
-      x: -140, y: -60, rotate: -15,
-      color: "#9F26C0",
-      link: "#"
-    },
-    {
-      id: "02",
-      title: "Puntos Digitales",
-      img: Card2,
-      x: 40, y: 60, rotate: 10,
-      color: "#22EA0A",
-      link: "#"
-    },
-    {
-      id: "03",
-      title: "Nodos Tecnologicos",
-      img: Card3,
-      x: 100, y: -80, rotate: 5,
-      color: "#EB0501",
-      link: "#"
-    }
-  ];
-
-  const localidades = [
-    { name: "Tinogasta", url: "https://maps.google.com/?q=Tinogasta" },
-    { name: "El Salado", url: "https://maps.app.goo.gl/1eDN84L7F4bACybP7" },
-    { name: "Copacabana", url: "https://maps.app.goo.gl/GToMw5XfBzAqExxd6" },
-    { name: "El Puesto", url: "https://maps.app.goo.gl/dh8AenEeocotbLwj8" }
-  ];
   // solucion para hover de celular
   const [activeCard, setActiveCard] = useState(null);
 
@@ -407,7 +414,7 @@ export function Home() {
                   transition={{ duration: 0.5, delay: idx * 0.1 + 0.3 }}
                 >
                   <h4 className="text-base sm:text-lg font-bold text-slate-900 mb-1 leading-tight">{item.title}</h4>
-                  <p className="text-slate-600 text-xs sm:text-sm leading-snug line-clamp-3">{item.desc}</p>
+                  <p className="text-slate-800 text-sm sm:text-base leading-snug line-clamp-3">{item.desc}</p>
                 </motion.div>
                 <motion.div
                   className={`absolute left-0 top-1/2 -translate-y-1/2 w-1 h-0 group-hover:h-12 bg-gradient-to-b ${item.from} ${item.to} transition-all duration-500 rounded-r-full`}
@@ -452,6 +459,7 @@ export function Home() {
               viewport={{ once: true }}
               transition={{ duration: 0.6, ease: "easeOut" }}
             >
+              {/* texto izquierda */}
               <div className="space-y-4">
                 <motion.div
                   initial={{ opacity: 0, y: 20 }}
@@ -462,7 +470,7 @@ export function Home() {
                     Espacios Comunitarios <br />
                     <span className="text-blue-600">Disponibles.</span>
                   </h2>
-                  <p className="text-slate-500 text-sm leading-relaxed max-w-sm">
+                  <p className="text-slate-900 text-base leading-relaxed max-w-base">
                     ¿Necesitás un espacio para realizar capacitaciones gratuitas? Nuestros centros están abiertos para instituciones de Tinogasta.
                   </p>
                 </motion.div>
@@ -472,8 +480,8 @@ export function Home() {
                     <Info size={16} className="text-[#22EA0A]" />
                     ¿Cómo solicitarlo?
                   </h4>
-                  <p className="text-slate-500 text-sm mt-2">
-                    Presentá una nota física dirigida a la Subsecretaría de Tecnología con 24 hs de anticipacion con la siguiente información:
+                  <p className="text-slate-900 text-base mt-2">
+                    Presentá una nota física dirigida a la Subsecretaría de Tecnología con 24 hs de anticipación con la siguiente información:
                   </p>
 
                   <div className="grid gap-1.5">
@@ -488,7 +496,7 @@ export function Home() {
                         className="flex items-center gap-3 p-2 bg-slate-50 border border-slate-100 rounded-lg transition-all hover:bg-white"
                       >
                         <div className="p-1 bg-white rounded shadow-sm scale-90">{paso.icon}</div>
-                        <span className="text-slate-600 font-medium text-[11px] leading-none">{paso.text}</span>
+                        <span className="text-slate-900 font-medium text-[15px] leading-none">{paso.text}</span>
                       </motion.div>
                     ))}
                   </div>
@@ -497,13 +505,13 @@ export function Home() {
                     <div className="shrink-0">
                       <span className="flex h-4 w-4 items-center justify-center rounded-full bg-amber-500 text-white text-[9px] font-bold">!</span>
                     </div>
-                    <p className="text-amber-800 text-[10px] font-semibold leading-tight">
-                      Importante: Como unico requisito se solicitan elementos de limpieza.
+                    <p className="text-amber-800 text-[13px] font-semibold leading-tight">
+                      Importante: Como único requisito se solicitan elementos de limpieza.
                     </p>
                   </div>
                 </div>
               </div>
-
+              {/* boton lado izquierdo  */}
               <motion.a
                 className="group w-full mt-6 lg:mt-4 px-5 py-3.5 bg-slate-900 text-white font-bold rounded-xl hover:bg-blue-600 transition-all shadow-lg flex items-center justify-center gap-3 text-xs tracking-wide"
                 href="https://docs.google.com/forms/d/e/1FAIpQLScInUWtjZ_0XuuJMkrwbgxfpJx8jAtTAFNoNjIPe1SMsLDiYA/viewform?usp=header"
@@ -553,8 +561,8 @@ export function Home() {
                         style={{ backgroundImage: `url(${espacio.img})` }} />
                       <div className="absolute inset-0 bg-gradient-to-t from-slate-900/80 via-transparent to-transparent opacity-90" />
                       <div className="absolute inset-0 p-3 sm:p-5 flex flex-col justify-end">
-                        <h3 className="text-white font-bold text-xs sm:text-sm md:text-base leading-tight mb-1">{espacio.title}</h3>
-                        <span className="w-fit px-2 py-0.5 bg-white/20 backdrop-blur-md rounded-lg text-[8px] sm:text-[9px] text-white font-bold border border-white/10 uppercase">
+                        <h3 className="text-white font-bold text-xs sm:text-sm md:text-base leading-tight mb-1 [text-shadow:_-2px_-1px_0_#000,1px_-1px_0_#000,-1px_1px_0_#000,1px_1px_0_#000]">{espacio.title}</h3>
+                        <span className="w-fit px-2 py-0.5 bg-white/20 backdrop-blur-md rounded-lg text-[10px] sm:text-[12px] text-white font-bold border border-white/10 uppercase">
                           {espacio.cap}
                         </span>
                       </div>
@@ -568,12 +576,12 @@ export function Home() {
                       animate={flippedIndex === i ? { opacity: 1, rotateY: 180 } : { opacity: 0, rotateY: 180 }}
                       transition={{ duration: 0.4 }}
                     >
-                      <img src={espacio.icon} alt="icon" className="w-8 h-8 sm:w-10 sm:h-10 mb-2 sm:mb-3 object-contain" />
-                      <h4 className="text-white font-black text-[9px] sm:text-[10px] uppercase tracking-tighter mb-1 opacity-80">
+                      <img src={espacio.icon} alt="icon" className="w-10 h-10 sm:w-15 sm:h-15 mb-2 sm:mb-3 object-contain" />
+                      <h4 className="text-white font-black text-[9px] sm:text-[12px] uppercase tracking-tighter mb-1">
                         Información del lugar
                       </h4>
-                      <p className="text-white text-[11px] sm:text-[12px] font-medium leading-snug">{espacio.info}</p>
-                      <div className="mt-3 sm:mt-4 text-[7px] sm:text-[8px] text-white/60 font-bold uppercase">Click para cerrar</div>
+                      <p className="text-white text-[11px] sm:text-[13px] font-medium leading-snug">{espacio.info}</p>
+                      <div className="mt-3 sm:mt-4 text-[7px] sm:text-[9px] text-white/90 font-bold uppercase">Click para cerrar</div>
                     </motion.div>
                   </div>
                 </Tilt>
@@ -624,7 +632,7 @@ export function Home() {
                 whileInView={{ scale: 1, opacity: 0.2 }}
                 transition={{ duration: 0.8, delay: 0.4 }}
               >
-                <img src="/Logos/PuntoD-B.png" alt="Logo punto digital" />
+                <img src="/Logos/PuntoD-B.webp" alt="Logo punto digital" />
               </motion.div>
               <div className="relative z-10">
                 <h3 className="text-2xl sm:text-3xl font-bold mb-3 sm:mb-4">Punto Digital</h3>
@@ -658,7 +666,7 @@ export function Home() {
                 whileInView={{ scale: 1 }}
                 transition={{ duration: 0.8, delay: 0.5 }}
               >
-                <img src="/Logos/Tino-N.png" alt="Logo Muni" />
+                <img src="/Logos/Tino-N.webp" alt="Logo Muni" />
               </motion.div>
               <div className="relative z-10">
                 <h4 className="text-lg sm:text-xl font-bold">Municipalidad de Tinogasta</h4>
@@ -711,7 +719,7 @@ export function Home() {
                 whileInView={{ scale: 1 }}
                 transition={{ duration: 1, delay: 0.8 }}
               >
-                <img src="/Logos/Robotica-blanco.png" alt="Logo Robotica" className='w-28 sm:w-36' />
+                <img src="/Logos/Robotica-blanco.webp" alt="Logo Robotica" className='w-28 sm:w-36' />
               </motion.div>
               <div>
                 <h4 className="font-bold text-slate-400 italic text-sm">Nodos Tecnológicos</h4>
@@ -734,9 +742,9 @@ export function Home() {
         transition={{ duration: 0.8, ease: "easeOut" }}
       >
         {/* Ondas SVG */}
-        <svg className="absolute bottom-0 left-0 w-full h-full z-0 pointer-events-none" viewBox="0 0 100 100" preserveAspectRatio="none">
+        <svg className="absolute bottom-0 left-0 w-full h-full z-0 pointer-events-none" viewBox="0 0 80 80" preserveAspectRatio="none">
           <defs>
-            <linearGradient id="waveGradE" x1="0%" y1="0%" x2="0%" y2="100%">
+            <linearGradient id="waveGradE" x1="0%" y1="0%" x2="0%" y2="50%">
               <stop offset="0%" stopColor="#0110FA" stopOpacity="0.8" />
               <stop offset="100%" stopColor="#f8fafc" stopOpacity="0" />
             </linearGradient>
@@ -746,7 +754,7 @@ export function Home() {
               values="M0 50 Q 25 30 50 50 Q 75 70 100 50 L 100 100 L 0 100 Z; M0 50 Q 25 70 50 50 Q 75 30 100 50 L 100 100 L 0 100 Z; M0 50 Q 25 30 50 50 Q 75 70 100 50 L 100 100 L 0 100 Z" />
           </path>
           <defs>
-            <linearGradient id="waveGrad2E" x1="0%" y1="0%" x2="0%" y2="100%">
+            <linearGradient id="waveGrad2E" x1="0%" y1="0%" x2="0%" y2="50%">
               <stop offset="0%" stopColor="#01EAE4" stopOpacity="0.3" />
               <stop offset="100%" stopColor="#f8fafc" stopOpacity="0" />
             </linearGradient>
@@ -774,7 +782,7 @@ export function Home() {
               initial={{ opacity: 0, x: 20 }}
               whileInView={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.6, delay: 0.3 }}
-              className="text-base sm:text-lg md:text-xl text-slate-800 leading-relaxed mb-8 sm:mb-10 max-w-xl mx-auto lg:mx-0"
+              className="text-base sm:text-lg md:text-xl text-slate-900 leading-relaxed mb-8 sm:mb-10 max-w-xl mx-auto lg:mx-0 font-semibold"
             >
               No somos solo una oficina. Somos una red descentralizada diseñada para que ningún vecino tenga que viajar kilómetros para acceder a la tecnología.
             </motion.p>
@@ -911,9 +919,10 @@ export function Home() {
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: 0.3 }}
               >
-                Encuentra nuestra<br />
+                Encuentra el<br />
                 <span className="bg-clip-text text-transparent bg-gradient-to-r from-blue-600 to-cyan-500">
-                  Instalacion mas cercana
+                  Espacio más cercano
+
                 </span>
               </motion.h2>
             </div>

@@ -2,9 +2,6 @@ import React from 'react'
 import { Instagram, Facebook, Mail, Code2, ExternalLink } from 'lucide-react';
 import Tilt from 'react-parallax-tilt';
 
-function Footer() {
-  const currentYear = new Date().getFullYear();
-
   // --- CONFIGURACIÓN DINÁMICA ---
   const socialLinks = [
     { icon: <Instagram size={40} />, href: "https://www.instagram.com/puntodigital_mt", filter: "hover:drop-shadow-[0_0_15px_rgba(236,72,153,0.7)]", color: "hover:text-pink-500" },
@@ -25,8 +22,13 @@ function Footer() {
     { name: "Punto Digital Nacional", url: "https://www.argentina.gob.ar/jefatura/innovacion-ciencia-y-tecnologia/tics/punto-digital", neon: "group-hover:from-purple-600/20 group-hover:to-purple-600/5", border: "group-hover:border-purple-500/50" },
     { name: "Mi Argentina", url: "https://www.argentina.gob.ar/miargentina", neon: "group-hover:from-blue-600/20 group-hover:to-blue-600/5", border: "group-hover:border-blue-500/50" },
     { name: "Municipalidad de Tinogasta", url: "https://tinogasta.gob.ar/", neon: "group-hover:from-emerald-600/20 group-hover:to-emerald-600/5", border: "group-hover:border-emerald-500/50" },
-    { name: "Ministerio Educacion C y T ", url: "https://tinogasta.gob.ar/", neon: "group-hover:from-red-600/20 group-hover:to-red-600/5", border: "group-hover:border-red-500/50" },
+    { name: "Ministerio Educacion C y T ", url: "https://portal.catamarca.gob.ar/organismos/ministerio-de-educacion-ciencia-y-tecnologia", neon: "group-hover:from-red-600/20 group-hover:to-red-600/5", border: "group-hover:border-red-500/50" },
   ];
+
+
+function Footer() {
+  const currentYear = new Date().getFullYear();
+
 
   return (
     <footer className="relative bg-slate-950 text-slate-400 border-t border-slate-900 pt-10 pb-4 px-6">
@@ -36,7 +38,7 @@ function Footer() {
         <div className="flex justify-center lg:justify-start">
           <Tilt perspective={1000} scale={1.1} transitionSpeed={2000}>
             <img
-              src="/Logos/Sub-Blanco.png"
+              src="/Logos/Sub-Blanco.webp"
               alt="Logo Subsecretaría"
               className="h-20 sm:h-28 w-auto object-contain drop-shadow-[0_0_20px_rgba(37,99,235,0.2)]"
             />

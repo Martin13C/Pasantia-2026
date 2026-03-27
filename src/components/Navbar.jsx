@@ -2,8 +2,6 @@ import { NavLink, Link } from "react-router-dom"
 import { Menu, X, Info, MapPin, BookOpen, Home } from "lucide-react"
 import { useState } from "react"
 
-function Navbar() {
-  const [isOpen, setIsOpen] = useState(false)
 
   // --- CONFIGURACIÓN DINÁMICA (Data Mapping) ---
   const navigationLinks = [
@@ -12,7 +10,11 @@ function Navbar() {
     { name: "Cursos", path: "/cursos", icon: <BookOpen size={20} />, isButton: true },
   ]
 
-  const linkBase = "relative text-gray-600 hover:text-blue-600 text-sm font-bold tracking-wide transition-colors px-2 py-1"
+
+function Navbar() {
+  const [isOpen, setIsOpen] = useState(false)
+
+  const linkBase = "relative text-gray-900 hover:text-blue-600 text-md font-bold tracking-wide transition-colors px-2 py-1"
   const activeStyle = "text-blue-600"
 
   return (
@@ -22,7 +24,7 @@ function Navbar() {
         {/* Logo */}
         <Link to="/" className="hover:scale-105 transition-transform duration-300 ease-out flex-shrink-0">
           <img 
-            src="/Logos/Sub-Negro.png" 
+            src="/Logos/Sub-Negro.webp" 
             alt="Home" 
             className="w-28 sm:w-40 transition-all" 
           />

@@ -833,7 +833,7 @@
   },
   {
     "id": 53,
-    "titulo": "Programacion, Robotica y Diseño 3D",
+    "titulo": "Programación, Robótica y Diseño 3D",
     "descripcion": "Introducción a programación, robótica y modelado 3D.",
     "categoria": "Tecnología",
     "nivel": "Principiante",
@@ -845,12 +845,12 @@
     "finalizado": false,
     "urlInscripcion": "https://docs.google.com/forms/d/e/1FAIpQLSfWvthJ8W9C8zCQQh84WnDnXGcp7wmNhpIh3ZxjWwyVxP3TQQ/viewform?usp=publish-editor",
     "urlRedes": "https://www.facebook.com/share/p/1JjEQG2X1V/",
-    "imagenPoster": "/Flayers/flayer1.jpeg"
+    "imagenPoster": "/Flayers/Flayer1.webp"
   },
   {
     "id": 54,
     "titulo": "Taller Tecnologías Ancestrales",
-    "descripcion": "",
+    "descripcion": "Un viaje creativo uniendo saberes antiguos con herramientas del presente.",
     "categoria": "Arte",
     "nivel": "Principiante",
     "duracion": "4 meses",
@@ -861,7 +861,23 @@
     "finalizado": false,
     "urlInscripcion": "https://docs.google.com/forms/d/e/1FAIpQLSfWvthJ8W9C8zCQQh84WnDnXGcp7wmNhpIh3ZxjWwyVxP3TQQ/viewform?usp=publish-editor",
     "urlRedes": "https://www.facebook.com/share/17VyC4nVKR/",
-    "imagenPoster": "/Flayers/flayer37.jpeg"
+    "imagenPoster": "/Flayers/Flayer37.webp"
+  },
+  {
+    "id": 55,
+    "titulo": "Clases de Apoyo de Inglés",
+    "descripcion": "Propuesta de apoyo escolar en inglés, enfocada en fortalecer la comprensión, la escritura y la pronunciación.",
+    "categoria": "Educación",
+    "nivel": "Principiante",
+    "duracion": "4 meses",
+    "profesor": "Ana Gabriela Díaz",
+    "lugar": "Punto Digital 1",
+    "fechaPublicacion": "26 Mar 2026",
+    "color": "verde",
+    "finalizado": false,
+    "urlInscripcion": "https://docs.google.com/forms/d/e/1FAIpQLSfWvthJ8W9C8zCQQh84WnDnXGcp7wmNhpIh3ZxjWwyVxP3TQQ/viewform?usp=publish-editor",
+    "urlRedes": "https://www.facebook.com/share/p/1C8RuWeaGq/",
+    "imagenPoster": "/Flayers/Flayer55.webp"
   }
 
 
