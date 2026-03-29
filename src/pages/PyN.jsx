@@ -105,7 +105,7 @@ const lugares = [
     city: "El Salado, Tinogasta, Catamarca",
     logo: "/Logos/NodoSalado.webp",
     img: Lugar4,
-    maps: "https://maps.google.com",
+    maps: "https://maps.app.goo.gl/AUevQFEReuLz3L5BA",
     from: "from-[#22EA0A]",
     to: "to-green-300",
     services: [
@@ -143,7 +143,7 @@ const lugares = [
     city: "Copacabana, Tinogasta, Catamarca",
     logo: "/Logos/NodoCopa.webp",
     img: Lugar6,
-    maps: "#",
+    maps: "https://maps.app.goo.gl/ZgSrdo8qSXzrRA7x9",
     from: "from-[#EB0501]",
     to: "to-red-400",
     services: [
